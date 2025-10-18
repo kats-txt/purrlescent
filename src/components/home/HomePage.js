@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { ConfigProvider, FloatButton, Modal } from 'antd';
+import { ArrowUpOutlined } from "@ant-design/icons";
 
 import bgPic from '../../pictures/V-Pics - Hp-1.png';
 
@@ -13,8 +16,13 @@ import pic5FlowerLace from '../../pictures/pic5.jpg';
 import pic6CrownCape from '../../pictures/pic6.jpg';
 import pic7WitchHat from '../../pictures/pic7.jpg';
 import pic8BabyBonnet from '../../pictures/pic8.jpg';
+import LoginPage from '../login/LoginPage';
 
-const ProductPage = () => {
+const HomePage = () => {
+    const cScreen = useNavigate();
+
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+
     return (
         <div class="w-full h-full overflow-y-auto overflow-x-hidden bg-[#E9DBC9] flex flex-col">
             <div class="relative w-full h-[90vh] flex flex-col items-center justify-between p-5 overflow-hidden">
@@ -27,38 +35,42 @@ const ProductPage = () => {
                 <div class="absolute inset-0 bg-[#521515]/70 z-0"></div>
 
                 <div class="relative z-10 flex flex-col items-center justify-between h-full w-full">
-    <div class="relative w-full flex items-center justify-center mt-5 px-5 md:px-10">
-        <h1 class="text-[#E9DBC9] text-2xl sm:text-3xl md:text-4xl font-bold">
-            Purrlescent
-        </h1>
+                    <div class="relative w-full flex items-center justify-center mt-5 px-5 md:px-10">
+                        <h1 class="text-[#E9DBC9] text-2xl sm:text-3xl md:text-4xl font-bold">
+                            Purrlescent
+                        </h1>
 
-        <a
-            href="#"
-            class="absolute right-0 text-[#E9DBC9] text-sm sm:text-base md:text-lg font-semibold hover:underline"
-        >
-            Logout
-        </a>
-    </div>
+                        <a
+                            onClick={() => setIsLoginModalOpen(true)}
+                            className="absolute right-0 text-[#E9DBC9] text-sm sm:text-base md:text-lg font-semibold hover:underline cursor-pointer"
+                        >
+                            Login
+                        </a>
+                    </div>
 
-    <div class="w-full flex flex-col items-center justify-between p-5">
-        <h1
-            style={{ fontFamily: '"Berkshire Swash", cursive' }}
-            class="text-[#E9DBC9] text-3xl sm:text-5xl md:text-6xl text-center leading-snug"
-        >
-            Where Feline Grace Meets Couture
-        </h1>
+                    <div class="w-full flex flex-col items-center justify-between p-5">
+                        <h1
+                            style={{ fontFamily: '"Berkshire Swash", cursive' }}
+                            class="text-[#E9DBC9] text-3xl sm:text-5xl md:text-6xl text-center leading-snug"
+                        >
+                            Where Feline Grace Meets Couture
+                        </h1>
 
-        <button class="w-3/4 sm:w-1/2 lg:w-2/3 xl:w-3/5 py-4 sm:py-5 text-[#E9DBC9] text-lg sm:text-xl lg:text-2xl xl:text-3xl bg-transparent border-[4px] sm:border-[6px] lg:border-[7px] border-[#E9DBC9] rounded-xl font-extrabold tracking-[0.2em] sm:tracking-[0.3em] lg:tracking-[0.4em] mt-8 hover:bg-[#E9DBC9] hover:text-[#521515] whitespace-nowrap">
-            COLLECTION
-        </button>
-    </div>
+                        <button
+                            onClick={() => cScreen('/purrlescentcollections')}
+                            class="relative overflow-hidden w-3/4 sm:w-1/2 lg:w-2/3 xl:w-3/5 py-4 sm:py-5 text-[#E9DBC9] text-lg sm:text-xl lg:text-2xl xl:text-3xl bg-transparent border-[4px] sm:border-[6px] lg:border-[7px] border-[#E9DBC9] rounded-xl font-extrabold tracking-[0.2em] sm:tracking-[0.3em] lg:tracking-[0.4em] mt-8 hover:bg-[#E9DBC9] hover:text-[#661f13] whitespace-nowrap transition-all duration-500"
+                        >
+                            <span class="relative z-10">COLLECTION</span>
+                            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 transition-all duration-700 hover:left-[100%]"></span>
+                        </button>
+                    </div>
 
-    <img
-        src={logo}
-        alt="Purrlescent Logo"
-        class="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[100px] md:h-[100px] rounded-full object-cover mb-5"
-    />
-</div>
+                    <img
+                        src={logo}
+                        alt="Purrlescent Logo"
+                        class="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[100px] md:h-[100px] rounded-full object-cover mb-5"
+                    />
+                </div>
 
             </div>
 
@@ -81,7 +93,10 @@ const ProductPage = () => {
                             accessories and apparel designed exclusively for cats.
                         </p>
                     </div>
-                    <button class="w-3/4 md:w-3/5 py-3 text-[#615352] text-base sm:text-lg md:text-xl bg-transparent border-[3px] sm:border-[5px] border-[#615352] rounded-lg font-extrabold tracking-wider">
+                    <button
+                        onClick={() => cScreen('/purrlescentcollections')}
+                        class="relative overflow-hidden w-3/4 md:w-3/5 py-3 text-[#615352] text-base sm:text-lg md:text-xl bg-transparent border-[3px] sm:border-[5px] border-[#615352] rounded-lg font-extrabold tracking-wider hover:bg-[#615352] hover:text-[#E9DBC9] transition-all duration-500"
+                    >
                         Discover the crowns
                     </button>
                 </div>
@@ -135,7 +150,10 @@ const ProductPage = () => {
                                 this set guarantees she shines with regal grace.
                             </p>
                         </div>
-                        <button class="w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-sm sm:text-base md:text-lg bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                        <button
+                            onClick={() => cScreen('/purrlescentcollections')}
+                            class="relative overflow-hidden w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                        >
                             Enter the Throne Room
                         </button>
                     </div>
@@ -162,7 +180,10 @@ const ProductPage = () => {
                                 and unmistakable “don’t mess with me” energy.
                             </p>
                         </div>
-                        <button class="w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-sm sm:text-base md:text-lg bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                        <button
+                            onClick={() => cScreen('/purrlescentcollections')}
+                            class="relative overflow-hidden w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                        >
                             Count the Cash
                         </button>
                     </div>
@@ -195,8 +216,10 @@ const ProductPage = () => {
                             it’s feline fashion straight out of the jazz age.
                         </p>
                     </div>
-
-                    <button class="w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                    <button
+                        onClick={() => cScreen('/purrlescentcollections')}
+                        class="relative overflow-hidden w-4/5 py-2 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[4px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                    >
                         Hit the Spotlight
                     </button>
                 </div>
@@ -219,7 +242,10 @@ const ProductPage = () => {
                             embroidered with dainty flowers,
                             perfect for turning your kitty into a graceful garden princess.
                         </p>
-                        <button class="w-4/5 py-2 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[2px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                        <button
+                            onClick={() => cScreen('/purrlescentcollections')}
+                            class="relative overflow-hidden w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                        >
                             Smell Flowers
                         </button>
                     </div>
@@ -241,7 +267,10 @@ const ProductPage = () => {
                             Featuring a royal cape and gleaming crown,
                             makes your feline the undisputed ruler of the realm.
                         </p>
-                        <button class="w-4/5 py-2 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[2px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                        <button
+                            onClick={() => cScreen('/purrlescentcollections')}
+                            class="relative overflow-hidden w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                        >
                             Bow to the King
                         </button>
                     </div>
@@ -263,7 +292,10 @@ const ProductPage = () => {
                             Purrfect for spooky nights, magic mischief,
                             or just everyday enchantment.
                         </p>
-                        <button class="w-4/5 py-2 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[2px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                        <button
+                            onClick={() => cScreen('/purrlescentcollections')}
+                            class="relative overflow-hidden w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                        >
                             Cast a Spell
                         </button>
                     </div>
@@ -287,8 +319,10 @@ const ProductPage = () => {
                             Light, comfy, and irresistibly adorable.
                         </p>
                     </div>
-
-                    <button class="w-4/5 md:w-3/4 py-3 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[3px] sm:border-[5px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352]">
+                    <button
+                        onClick={() => cScreen('/purrlescentcollections')}
+                        class="relative overflow-hidden w-4/5 py-2 text-[#E9DBC9] text-xs sm:text-sm md:text-base bg-transparent border-[4px] border-[#E9DBC9] rounded-lg font-extrabold tracking-wider hover:bg-[#E9DBC9] hover:text-[#615352] transition-all duration-500"
+                    >
                         Cuddle Up
                     </button>
                 </div>
@@ -301,8 +335,82 @@ const ProductPage = () => {
                     />
                 </div>
             </div>
+            {/* <FloatButton.BackTop
+                visibilityHeight={0}
+                style={{
+                    backgroundColor: '#E9DBC9',
+                    color: '#E9DBC9',
+                }}
+            />
+            <Modal
+                open={isLoginModalOpen}
+                onCancel={() => setIsLoginModalOpen(false)}
+                footer={null}
+                centered
+                width={700}
+                closable={false}
+            >
+                <LoginPage />
+            </Modal> */}
+            <ConfigProvider
+                theme={{
+                    components: {
+                        FloatButton: {
+                            colorBgElevated: "#661f13",
+                            colorBgElevatedHover: "#E9DBC9",
+                            colorPrimary: "#E9DBC9",
+                            colorPrimaryHover: "#615352",
+                        },
+                    },
+                }}
+            >
+                <FloatButton.BackTop
+                        visibilityHeight={0}
+                        icon={
+                            <ArrowUpOutlined
+                                style={{
+                                    color: "#E9DBC9",
+                                    transition: "all 0.3s ease",
+                                }}
+                            />
+                        }
+                        style={{
+                            backgroundColor: "#661f13",
+                            border: "none",
+                            transition: "all 0.3s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#E9DBC9";
+                            e.currentTarget.querySelector("svg").style.color = "#615352";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = "#661f13";
+                            e.currentTarget.querySelector("svg").style.color = "#E9DBC9";
+                        }}
+                    />
+            </ConfigProvider>
+            <ConfigProvider
+                theme={{
+                    components: {
+                        Modal: {
+                            contentBg: '#E9DBC9',
+                        },
+                    },
+                }}
+            >
+                <Modal
+                    open={isLoginModalOpen}
+                    onCancel={() => setIsLoginModalOpen(false)}
+                    footer={null}
+                    centered
+                    width={700}
+                    closable={false}
+                >
+                    <LoginPage />
+                </Modal>
+            </ConfigProvider>
         </div>
     )
 }
 
-export default ProductPage
+export default HomePage
