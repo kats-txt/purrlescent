@@ -1,22 +1,21 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CartProvider } from './cart/CartContext';
 
-import HomePage from './home/HomePage'
-import LoginPage from './login/LoginPage'
-import CollectionPage from './collection/CollectionPage'
+import HomePage from './home/HomePage';
+import CollectionPage from './collection/CollectionPage';
 
 const AppController = () => {
     return (
-        <div>
+        <CartProvider>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<HomePage />}></Route>
-                    <Route path='/login' element={<LoginPage />}></Route>
-                    <Route path='/purrlescentcollections' element={<CollectionPage />}></Route>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/purrlescentcollections' element={<CollectionPage />} />
                 </Routes>
             </BrowserRouter>
-        </div>
-    )
-}
+        </CartProvider>
+    );
+};
 
-export default AppController
+export default AppController;
