@@ -6,10 +6,7 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
     const addToCart = (item) => {
-        const existingIndex = cartItems.findIndex(
-            (i) => i.name === item.name
-        );
-
+        const existingIndex = cartItems.findIndex((i) => i.name === item.name);
         if (existingIndex >= 0) {
             const updatedCart = [...cartItems];
             updatedCart[existingIndex].quantity += item.quantity;
@@ -20,7 +17,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart }}>
+        <CartContext.Provider value={{ cartItems, setCartItems, addToCart }}>
             {children}
         </CartContext.Provider>
     );

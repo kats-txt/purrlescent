@@ -155,7 +155,7 @@ const HomePage = () => {
                         </p>
                     </div>
                     <button
-                        onClick={() => cScreen("/purrlescentcollections", {
+                        onClick={() => cScreen("/collections/item", {
                             state: {
                                 name: "Lace Pearl Collar",
                                 price: "$80.00",
@@ -248,7 +248,7 @@ const HomePage = () => {
                             </p>
                         </div>
                         <button
-                            onClick={() => cScreen("/purrlescentcollections", {
+                            onClick={() => cScreen("/collections/item", {
                                 state: {
                                     name: "Her Meowjesty Crown Set",
                                     price: "$250.00",
@@ -300,7 +300,7 @@ const HomePage = () => {
                             </p>
                         </div>
                         <button
-                            onClick={() => cScreen("/purrlescentcollections", {
+                            onClick={() => cScreen("/collections/item", {
                                 state: {
                                     name: "Big Meowney Set",
                                     price: "$180.00",
@@ -359,7 +359,7 @@ const HomePage = () => {
                         </p>
                     </div>
                     <button
-                        onClick={() => cScreen("/purrlescentcollections", {
+                        onClick={() => cScreen("/collections/item", {
                             state: {
                                 name: "Jazz Paw Set",
                                 price: "$220.00",
@@ -411,7 +411,7 @@ const HomePage = () => {
                             perfect for turning your kitty into a graceful garden princess.
                         </p>
                         <button
-                            onClick={() => cScreen("/purrlescentcollections", {
+                            onClick={() => cScreen("/collections/item", {
                                 state: {
                                     name: "Purrlina Bloom Lace Cape",
                                     price: "$165.00",
@@ -461,7 +461,7 @@ const HomePage = () => {
                             makes your feline the undisputed ruler of the realm.
                         </p>
                         <button
-                            onClick={() => cScreen("/purrlescentcollections", {
+                            onClick={() => cScreen("/collections/item", {
                                 state: {
                                     name: "The Cat King Regal Set",
                                     price: "$240.00",
@@ -512,7 +512,7 @@ const HomePage = () => {
                             or just everyday enchantment.
                         </p>
                         <button
-                            onClick={() => cScreen("/purrlescentcollections", {
+                            onClick={() => cScreen("/collections/item", {
                                 state: {
                                     name: "Hex Meow Witch Set",
                                     price: "$190.00",
@@ -548,7 +548,7 @@ const HomePage = () => {
                         </p>
                     </div>
                     <button
-                        onClick={() => cScreen("/purrlescentcollections", {
+                        onClick={() => cScreen("/collections/item", {
                             state: {
                                 name: "SnugglePaw Crochet Baby Bonnet",
                                 price: "$95.00",
@@ -625,7 +625,7 @@ const HomePage = () => {
                         </p>
                     </div>
                     <button
-                        onClick={() => cScreen("/purrlescentcollections", {
+                        onClick={() => cScreen("/collections/item", {
                             state: {
                                 name: "Green Lace Bow Collar",
                                 price: "$120.00",
@@ -657,7 +657,12 @@ const HomePage = () => {
                 </h1>
 
                 <button
-                    onClick={() => cScreen('/purrlescentcollections')}
+                    onClick={() => {
+                        window.scrollTo({
+                            top: 700,
+                            behavior: "smooth",
+                        });
+                    }}
                     class="relative overflow-hidden w-2/3 sm:w-1/2 lg:w-1/3 py-2.5 sm:py-3 text-[#615352] text-base sm:text-lg lg:text-xl bg-transparent border-[3px] sm:border-[4px] border-[#615352] rounded-lg font-extrabold tracking-[0.15em] sm:tracking-[0.2em] mt-6 hover:bg-[#615352] hover:text-[#E9DBC9] whitespace-nowrap transition-all duration-500"
                 >
                     <span class="relative z-10">COLLECTION</span>
@@ -686,9 +691,9 @@ const HomePage = () => {
                         },
                     }}
                 >
-                    <FloatButton.BackTop
+                    <FloatButton
                         tooltip={<div>Go to cart</div>}
-                        visibilityHeight={0}
+                        onClick={() => cScreen('/shoppingcart')}
                         icon={
                             <ShoppingCartOutlined
                                 style={{

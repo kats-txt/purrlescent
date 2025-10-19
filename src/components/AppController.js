@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CartProvider } from './cart/CartContext';
 
 import HomePage from './home/HomePage';
-import CollectionPage from './collection/CollectionPage';
+import ItemPage from './collection/ItemPage';
+import CartPage from './cart/CartPage';
 
 const AppController = () => {
     return (
@@ -11,7 +12,8 @@ const AppController = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<HomePage />} />
-                    <Route path='/purrlescentcollections' element={<CollectionPage />} />
+                    <Route path='/collections/item' element={<ItemPage />} />
+                    <Route path='/shoppingcart' element={<CartPage />} />
                 </Routes>
             </BrowserRouter>
         </CartProvider>

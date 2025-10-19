@@ -37,7 +37,7 @@ export default function LoginPage() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             class="w-full bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 
-              focus:outline-none focus:bg-[#E9DBC9] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
+              focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
                         />
                         {error && (
                             <div class="text-[#f0523d] text-[10px] leading-4 mt-1">{error}</div>
@@ -51,7 +51,7 @@ export default function LoginPage() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             class="w-full bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 
-              focus:outline-none focus:bg-[#E9DBC9] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
+              focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
                         />
                     </div>
 
@@ -90,7 +90,7 @@ export default function LoginPage() {
                                 type={placeholder.toLowerCase().includes('password') ? 'password' : 'text'}
                                 placeholder={placeholder}
                                 class="w-4/5 bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 
-                focus:outline-none focus:bg-[#E9DBC9] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
+                focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
                             />
                         )
                     )}
@@ -118,7 +118,7 @@ export default function LoginPage() {
                         type="email"
                         placeholder="Email"
                         class="w-4/5 bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 
-            focus:outline-none focus:bg-[#E9DBC9] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
+            focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
                     />
 
                     <button

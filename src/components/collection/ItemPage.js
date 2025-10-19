@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Select, InputNumber, ConfigProvider, Modal } from "antd";
+import { Select, InputNumber, ConfigProvider, Modal, Table, message, FloatButton } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { CartContext } from "../cart/CartContext";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import logo from '../../pictures/Purrlescent - 1.png';
 import LoginPage from "../login/LoginPage";
 
-export default function CollectionPage() {
+export default function ItemPage() {
     const cScreen = useNavigate();
     const { addToCart, cartItems } = useContext(CartContext);
     const location = useLocation();
@@ -18,10 +19,41 @@ export default function CollectionPage() {
     const [quantity, setQuantity] = useState(1);
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
+    const [isSizeChartOpen, setIsSizeChartOpen] = useState(false);
+    const [isReturnPolicyOpen, setIsReturnPolicyOpen] = useState(false);
+
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const sizeData = [
+        { key: '1', size: 'XS', neck: '20cm', chest: '25cm' },
+        { key: '2', size: 'S', neck: '25cm', chest: '30cm' },
+        { key: '3', size: 'M', neck: '30cm', chest: '35cm' },
+        { key: '4', size: 'L', neck: '35cm', chest: '40cm' },
+    ];
+
+    const columns = [
+        { title: 'Size', dataIndex: 'size', key: 'size' },
+        { title: 'Neck', dataIndex: 'neck', key: 'neck' },
+        { title: 'Chest', dataIndex: 'chest', key: 'chest' },
+    ];
+
 
     const handleAddToCart = () => {
+        if (!color || !size) {
+            messageApi.open({
+                type: 'warning',
+                content: 'Please select both color and size before adding to cart.',
+                duration: 2,
+            });
+            return;
+        }
+
         addToCart({ image, name, price, quantity, color, size });
-        alert(`${name} added to cart!`);
+        messageApi.open({
+            type: 'success',
+            content: `${name} added to cart!`,
+            duration: 2,
+        });
         console.log("Current cart:", cartItems);
     };
 
@@ -31,8 +63,19 @@ export default function CollectionPage() {
 
     return (
         <div>
+            <ConfigProvider
+                theme={{
+                    token: {
+                        // colorBgBase: '#E9DBC9',  // beige background
+                        colorTextBase: '#615352', // grey text
+                    },
+                }}
+            >
+                {contextHolder}
+            </ConfigProvider>
+
             <div class="relative w-full flex items-center justify-center mt-5 px-5 md:px-10 mb-[15px]">
-                <div onClick={() => cScreen('/')} class="flex flex-col items-center justify-center">
+                <div onClick={() => cScreen('/')} class="flex flex-col items-center justify-center cursor-pointer">
                     <img
                         src={logo}
                         alt="Purrlescent Logo"
@@ -119,8 +162,8 @@ export default function CollectionPage() {
                     </button>
 
                     <div class="flex justify-between mt-6 text-sm underline">
-                        <a href="#">Size Chart</a>
-                        <a href="#">Return Policy</a>
+                        <a onClick={() => setIsSizeChartOpen(true)} class="cursor-pointer">Size Chart</a>
+                        <a onClick={() => setIsReturnPolicyOpen(true)} class="cursor-pointer">Return Policy</a>
                     </div>
                 </div>
             </div>
@@ -155,6 +198,72 @@ export default function CollectionPage() {
                 >
                     <LoginPage />
                 </Modal>
+            </ConfigProvider>
+            <Modal
+                title="Size Chart"
+                open={isSizeChartOpen}
+                onCancel={() => setIsSizeChartOpen(false)}
+                footer={null}
+                centered
+            >
+                <Table
+                    dataSource={sizeData}
+                    columns={columns}
+                    pagination={false}
+                    bordered
+                />
+            </Modal>
+
+            <Modal
+                title="Return Policy"
+                open={isReturnPolicyOpen}
+                onCancel={() => setIsReturnPolicyOpen(false)}
+                footer={null}
+                centered
+            >
+                <p>
+                    All items can be returned within 14 days of delivery if in original condition.
+                    Custom-made or personalized items cannot be returned. Refunds are processed within 5-7 business days.
+                </p>
+            </Modal>
+
+            <ConfigProvider
+                theme={{
+                    components: {
+                        FloatButton: {
+                            colorBgElevated: "#661f13",
+                            colorBgElevatedHover: "#E9DBC9",
+                            colorPrimary: "#E9DBC9",
+                            colorPrimaryHover: "#615352",
+                        },
+                    },
+                }}
+            >
+                <FloatButton
+                    tooltip={<div>Go to cart</div>}
+                    onClick={() => cScreen('/shoppingcart')}
+                    icon={
+                        <ShoppingCartOutlined
+                            style={{
+                                color: "#E9DBC9",
+                                transition: "all 0.3s ease",
+                            }}
+                        />
+                    }
+                    style={{
+                        backgroundColor: "#661f13",
+                        border: "none",
+                        transition: "all 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = "#E9DBC9";
+                        e.currentTarget.querySelector("svg").style.color = "#615352";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = "#661f13";
+                        e.currentTarget.querySelector("svg").style.color = "#E9DBC9";
+                    }}
+                />
             </ConfigProvider>
         </div>
     );
