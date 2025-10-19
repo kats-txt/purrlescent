@@ -36,8 +36,7 @@ export default function LoginPage() {
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            class="w-full bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 
-              focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
+                            class="w-full bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
                         />
                         {error && (
                             <div class="text-[#f0523d] text-[10px] leading-4 mt-1">{error}</div>
@@ -50,14 +49,13 @@ export default function LoginPage() {
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            class="w-full bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 
-              focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
+                            class="w-full bg-transparent border-b-2 border-[#615352] py-2 px-2 placeholder-[#615352]/60 focus:outline-none focus:bg-[#fff] focus:rounded-md focus:ring-2 focus:ring-[#615352] transition-all duration-300"
                         />
                     </div>
 
                     <button
                         onClick={handleSubmit}
-  class="w-4/5 py-2 text-[#E9DBC9] text-sm sm:text-base bg-[#615352] border-2 border-[#615352] rounded-md font-extrabold tracking-wide transform transition-all duration-300"
+                        class="w-4/5 py-2 text-[#E9DBC9] text-sm sm:text-base bg-[#615352] border-2 border-[#615352] rounded-md font-extrabold tracking-wide transform transition-all duration-300"
                     >
                         Sign In
                     </button>
@@ -96,7 +94,7 @@ export default function LoginPage() {
                     )}
 
                     <button
-  class="w-4/5 py-2 text-[#E9DBC9] text-sm sm:text-base bg-[#615352] border-2 border-[#615352] rounded-md font-extrabold tracking-wide transform transition-all duration-300"
+                        class="w-4/5 py-2 text-[#E9DBC9] text-sm sm:text-base bg-[#615352] border-2 border-[#615352] rounded-md font-extrabold tracking-wide transform transition-all duration-300"
                     >
                         Create Account
                     </button>
@@ -122,10 +120,10 @@ export default function LoginPage() {
                     />
 
                     <button
-  class="w-4/5 py-2 text-[#E9DBC9] text-sm sm:text-base bg-[#615352] border-2 border-[#615352] rounded-md font-extrabold tracking-wide transform transition-all duration-300"
->
-  Send Reset Link
-</button>
+                        class="w-4/5 py-2 text-[#E9DBC9] text-sm sm:text-base bg-[#615352] border-2 border-[#615352] rounded-md font-extrabold tracking-wide transform transition-all duration-300"
+                    >
+                        Send Reset Link
+                    </button>
 
                     <button
                         onClick={() => setShowReset(false)}

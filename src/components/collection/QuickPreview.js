@@ -41,8 +41,8 @@ export default function QuickPreview({ image, name, price, description, note }) 
             <ConfigProvider
                 theme={{
                     token: {
-                        // colorBgBase: '#E9DBC9',  // beige background
-                        colorTextBase: '#615352', // grey text
+                        // colorBgBase: '#E9DBC9',
+                        colorTextBase: '#615352',
                     },
                 }}
             >
